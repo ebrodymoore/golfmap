@@ -21,7 +21,7 @@ export function CourseMap() {
     if (user) {
       loadCourses()
     }
-  }, [user])
+  }, [user, loadCourses])
 
   const loadCourses = async () => {
     if (!user) return

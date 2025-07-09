@@ -1,7 +1,6 @@
 // Simplified Supabase client for deployment
 // Replace with actual Supabase configuration when ready
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 export const supabase = {

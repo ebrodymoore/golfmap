@@ -16,6 +16,8 @@ export interface CourseSearchResult {
   phone?: string
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export async function searchCoursesWithGoogle(
   query: string, 
   location?: string
@@ -36,11 +38,11 @@ export async function searchCoursesWithGoogle(
     })
 
     const courses = response.data.results
-      .filter(place => 
+      .filter((place: any) => 
         place.types?.includes('establishment') && 
         place.name?.toLowerCase().includes('golf')
       )
-      .map(place => ({
+      .map((place: any) => ({
         name: place.name || '',
         location: place.formatted_address?.split(',')[0] || '',
         country: place.formatted_address?.split(',').pop()?.trim() || '',
