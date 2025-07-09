@@ -6,7 +6,7 @@ import {
   CreateGolfCourseInput, 
   CreateRankingInput, 
   UpdateRankingInput 
-} from '@/types/golf'
+} from '../types/golf'
 
 export async function getGolfCourses(): Promise<GolfCourse[]> {
   const { data, error } = await supabase

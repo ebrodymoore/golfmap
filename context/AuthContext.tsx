@@ -1,8 +1,8 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
-import { User, getCurrentUser } from '@/lib/auth'
-import { supabase } from '@/lib/supabase'
+import { User, getCurrentUser } from '../lib/auth'
+import { supabase } from '../lib/supabase'
 
 interface AuthContextType {
   user: User | null

@@ -1,4 +1,4 @@
-import { searchCoursesWithGoogle, importCourseToDatabase } from '@/lib/course-data'
+import { searchCoursesWithGoogle, importCourseToDatabase } from '../lib/course-data'
 
 // Bulk import courses by region
 const REGIONS_TO_IMPORT = [
