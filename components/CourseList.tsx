@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { RankedGolfCourse } from '@/types/golf'
-import { getUserRankings, reorderRankings } from '@/lib/enhanced-golf'
-import { useAuth } from '@/context/AuthContext'
+import { RankedGolfCourse } from '../types/golf'
+import { getUserRankings, reorderRankings } from '../lib/enhanced-golf'
+import { useAuth } from '../context/AuthContext'
 import { CourseCard } from './CourseCard'
 import { AddCourseButton } from './AddCourseButton'
 import { CourseSearch } from './CourseSearch'

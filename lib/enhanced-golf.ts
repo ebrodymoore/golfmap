@@ -6,7 +6,7 @@ import {
   EnhancedGolfCourse, 
   EnhancedRankedGolfCourse, 
   CreateEnhancedGolfCourseInput
-} from '@/types/enhanced-golf'
+} from '../types/enhanced-golf'
 
 // Backwards compatible functions that work with both old and new schema
 export async function getEnhancedGolfCourses(): Promise<EnhancedGolfCourse[]> {

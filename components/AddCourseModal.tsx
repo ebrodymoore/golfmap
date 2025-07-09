@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { createGolfCourse, createRanking, getUserRankings } from '@/lib/enhanced-golf'
-import { useAuth } from '@/context/AuthContext'
+import { createGolfCourse, createRanking, getUserRankings } from '../lib/enhanced-golf'
+import { useAuth } from '../context/AuthContext'
 
 interface AddCourseModalProps {
   isOpen: boolean

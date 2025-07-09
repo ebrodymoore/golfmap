@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { RankedGolfCourse } from '@/types/golf'
-import { updateRanking } from '@/lib/enhanced-golf'
-import { useAuth } from '@/context/AuthContext'
+import { RankedGolfCourse } from '../types/golf'
+import { updateRanking } from '../lib/enhanced-golf'
+import { useAuth } from '../context/AuthContext'
 
 interface CourseDetailsProps {
   course: RankedGolfCourse

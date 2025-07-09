@@ -2,9 +2,9 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import dynamic from 'next/dynamic'
-import { RankedGolfCourse } from '@/types/golf'
-import { getUserRankings } from '@/lib/enhanced-golf'
-import { useAuth } from '@/context/AuthContext'
+import { RankedGolfCourse } from '../types/golf'
+import { getUserRankings } from '../lib/enhanced-golf'
+import { useAuth } from '../context/AuthContext'
 
 const Map = dynamic(() => import('./Map'), {
   ssr: false,
