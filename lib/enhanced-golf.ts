@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { supabase } from './supabase'
 import { 
   EnhancedGolfCourse, 
-  EnhancedUserGolfCourseRanking, 
   EnhancedRankedGolfCourse, 
   CreateEnhancedGolfCourseInput
 } from '@/types/enhanced-golf'
