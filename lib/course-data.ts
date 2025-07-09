@@ -32,8 +32,7 @@ export async function searchCoursesWithGoogle(
       params: {
         query: `${query} golf course`,
         location: location,
-        key: apiKey,
-        type: 'establishment'
+        key: apiKey
       }
     })
 
