@@ -74,29 +74,30 @@ export function CourseCard({ course, onReorder, onUpdate }: CourseCardProps) {
           </div>
 
           <div className="flex flex-col gap-2 ml-4">
-          <div className="flex gap-1">
+            <div className="flex gap-1">
+              <button
+                onClick={handleMoveUp}
+                disabled={course.rank === 1}
+                className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed rounded"
+              >
+                ↑
+              </button>
+              <button
+                onClick={handleMoveDown}
+                className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded"
+              >
+                ↓
+              </button>
+            </div>
+            
             <button
-              onClick={handleMoveUp}
-              disabled={course.rank === 1}
-              className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed rounded"
+              onClick={handleDelete}
+              disabled={isDeleting}
+              className="px-3 py-1 text-xs bg-red-100 hover:bg-red-200 text-red-700 disabled:opacity-50 rounded"
             >
-              ↑
-            </button>
-            <button
-              onClick={handleMoveDown}
-              className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded"
-            >
-              ↓
+              {isDeleting ? 'Removing...' : 'Remove'}
             </button>
           </div>
-          
-          <button
-            onClick={handleDelete}
-            disabled={isDeleting}
-            className="px-3 py-1 text-xs bg-red-100 hover:bg-red-200 text-red-700 disabled:opacity-50 rounded"
-          >
-            {isDeleting ? 'Removing...' : 'Remove'}
-          </button>
         </div>
       </div>
       
