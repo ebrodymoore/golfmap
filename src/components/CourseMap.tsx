@@ -1,5 +1,7 @@
 'use client'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { useAuth } from '../context/AuthContext'
 
 export function CourseMap() {

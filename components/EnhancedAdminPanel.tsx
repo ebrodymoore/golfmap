@@ -12,7 +12,7 @@ export function EnhancedAdminPanel() {
             Bulk import and database management features are temporarily disabled for this deployment.
           </p>
           <ul className="text-sm text-amber-700 space-y-1">
-            <li>• Use the "Add Course" button to manually add courses</li>
+            <li>• Use the &quot;Add Course&quot; button to manually add courses</li>
             <li>• Basic course management is fully functional</li>
             <li>• Advanced features will be enabled in future updates</li>
           </ul>

@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import { useAuth } from '@/context/AuthContext'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 interface CourseSearchProps {
   onCourseAdded: () => void
@@ -17,7 +16,7 @@ export function CourseSearch({ onCourseAdded }: CourseSearchProps) {
           <strong>Search functionality is temporarily disabled.</strong>
         </p>
         <p className="text-sm text-blue-600">
-          Use the "Add Course" button above to manually add golf courses for now. 
+          Use the &quot;Add Course&quot; button above to manually add golf courses for now. 
           Advanced search and Google integration will be available soon!
         </p>
       </div>
