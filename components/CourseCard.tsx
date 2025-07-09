@@ -71,9 +71,9 @@ export function CourseCard({ course, onReorder, onUpdate }: CourseCardProps) {
               Played on: {new Date(course.date_played).toLocaleDateString()}
             </p>
           )}
-        </div>
+          </div>
 
-        <div className="flex flex-col gap-2 ml-4">
+          <div className="flex flex-col gap-2 ml-4">
           <div className="flex gap-1">
             <button
               onClick={handleMoveUp}

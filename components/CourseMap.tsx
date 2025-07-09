@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { RankedGolfCourse } from '@/types/golf'
 import { getUserRankings } from '@/lib/enhanced-golf'
@@ -23,7 +23,7 @@ export function CourseMap() {
     }
   }, [user, loadCourses])
 
-  const loadCourses = async () => {
+  const loadCourses = useCallback(async () => {
     if (!user) return
     
     try {
@@ -39,7 +39,7 @@ export function CourseMap() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [user])
 
   if (!user) {
     return (

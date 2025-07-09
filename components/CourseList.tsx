@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { RankedGolfCourse } from '@/types/golf'
 import { getUserRankings, reorderRankings } from '@/lib/enhanced-golf'
 import { useAuth } from '@/context/AuthContext'
@@ -20,7 +20,7 @@ export function CourseList() {
     }
   }, [user, loadCourses])
 
-  const loadCourses = async () => {
+  const loadCourses = useCallback(async () => {
     if (!user) return
     
     try {
@@ -33,7 +33,7 @@ export function CourseList() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [user])
 
   const handleReorder = async (courseId: string, newRank: number) => {
     if (!user) return
