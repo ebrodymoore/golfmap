@@ -1,7 +1,7 @@
-import { CourseList } from '@/components/CourseList'
-import { CourseMap } from '@/components/CourseMap'
-import { EnhancedAdminPanel } from '@/components/EnhancedAdminPanel'
-import { DatabaseStats } from '@/components/DatabaseStats'
+import { CourseList } from '../components/CourseList'
+import { CourseMap } from '../components/CourseMap'
+import { EnhancedAdminPanel } from '../components/EnhancedAdminPanel'
+import { DatabaseStats } from '../components/DatabaseStats'
 
 export default function Home() {
   return (
