@@ -14,12 +14,6 @@ export function CourseList() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (user) {
-      loadCourses()
-    }
-  }, [user, loadCourses])
-
   const loadCourses = useCallback(async () => {
     if (!user) return
     
@@ -34,6 +28,12 @@ export function CourseList() {
       setLoading(false)
     }
   }, [user])
+
+  useEffect(() => {
+    if (user) {
+      loadCourses()
+    }
+  }, [user, loadCourses])
 
   const handleReorder = async (courseId: string, newRank: number) => {
     if (!user) return

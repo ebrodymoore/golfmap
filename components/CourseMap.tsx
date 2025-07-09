@@ -17,12 +17,6 @@ export function CourseMap() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (user) {
-      loadCourses()
-    }
-  }, [user, loadCourses])
-
   const loadCourses = useCallback(async () => {
     if (!user) return
     
@@ -40,6 +34,12 @@ export function CourseMap() {
       setLoading(false)
     }
   }, [user])
+
+  useEffect(() => {
+    if (user) {
+      loadCourses()
+    }
+  }, [user, loadCourses])
 
   if (!user) {
     return (
