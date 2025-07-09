@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { RankedGolfCourse } from '@/types/golf'
-import { deleteRanking } from '@/lib/golf'
+import { deleteRanking } from '@/lib/enhanced-golf'
 import { useAuth } from '@/context/AuthContext'
+import { CourseDetails } from './CourseDetails'
 
 interface CourseCardProps {
   course: RankedGolfCourse
@@ -14,6 +15,7 @@ interface CourseCardProps {
 export function CourseCard({ course, onReorder, onUpdate }: CourseCardProps) {
   const { user } = useAuth()
   const [isDeleting, setIsDeleting] = useState(false)
+  const [showDetails, setShowDetails] = useState(false)
 
   const handleDelete = async () => {
     if (!user || !confirm('Are you sure you want to remove this course?')) return
@@ -40,15 +42,16 @@ export function CourseCard({ course, onReorder, onUpdate }: CourseCardProps) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-      <div className="flex justify-between items-start">
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="bg-blue-100 text-blue-800 text-lg font-bold px-3 py-1 rounded-full">
-              #{course.rank}
-            </span>
-            <h3 className="text-xl font-semibold">{course.name}</h3>
-          </div>
+    <>
+      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+        <div className="flex justify-between items-start">
+          <div className="flex-1 cursor-pointer" onClick={() => setShowDetails(true)}>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="bg-blue-100 text-blue-800 text-lg font-bold px-3 py-1 rounded-full">
+                #{course.rank}
+              </span>
+              <h3 className="text-xl font-semibold hover:text-blue-600">{course.name}</h3>
+            </div>
           
           <p className="text-gray-600 mb-2">{course.location}, {course.country}</p>
           
@@ -96,6 +99,14 @@ export function CourseCard({ course, onReorder, onUpdate }: CourseCardProps) {
           </button>
         </div>
       </div>
-    </div>
+      
+      {showDetails && (
+        <CourseDetails
+          course={course}
+          onClose={() => setShowDetails(false)}
+          onUpdate={onUpdate}
+        />
+      )}
+    </>
   )
 }

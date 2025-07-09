@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { createGolfCourse, createRanking, getUserRankings } from '@/lib/golf'
+import { createGolfCourse, createRanking, getUserRankings } from '@/lib/enhanced-golf'
 import { useAuth } from '@/context/AuthContext'
 
 interface AddCourseModalProps {
@@ -20,7 +20,9 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
     country: '',
     description: '',
     notes: '',
-    date_played: ''
+    date_played: '',
+    latitude: '',
+    longitude: ''
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,7 +37,9 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
         name: formData.name,
         location: formData.location,
         country: formData.country,
-        description: formData.description || undefined
+        description: formData.description || undefined,
+        latitude: formData.latitude ? parseFloat(formData.latitude) : undefined,
+        longitude: formData.longitude ? parseFloat(formData.longitude) : undefined
       })
 
       const existingRankings = await getUserRankings(user.id)
@@ -54,7 +58,9 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
         country: '',
         description: '',
         notes: '',
-        date_played: ''
+        date_played: '',
+        latitude: '',
+        longitude: ''
       })
       
       onCourseAdded()
@@ -160,6 +166,41 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
                 onChange={(e) => setFormData({ ...formData, date_played: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="latitude" className="block text-sm font-medium text-gray-700 mb-1">
+                  Latitude
+                </label>
+                <input
+                  type="number"
+                  id="latitude"
+                  step="any"
+                  value={formData.latitude}
+                  onChange={(e) => setFormData({ ...formData, latitude: e.target.value })}
+                  placeholder="e.g., 40.7128"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="longitude" className="block text-sm font-medium text-gray-700 mb-1">
+                  Longitude
+                </label>
+                <input
+                  type="number"
+                  id="longitude"
+                  step="any"
+                  value={formData.longitude}
+                  onChange={(e) => setFormData({ ...formData, longitude: e.target.value })}
+                  placeholder="e.g., -74.0060"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            
+            <div className="text-sm text-gray-500">
+              <p>💡 Tip: You can find coordinates by searching for the golf course on Google Maps, right-clicking on the location, and selecting the coordinates that appear.</p>
             </div>
 
             <div className="flex justify-end gap-3 pt-4">

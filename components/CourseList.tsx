@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { RankedGolfCourse } from '@/types/golf'
-import { getUserRankings, reorderRankings } from '@/lib/golf'
+import { getUserRankings, reorderRankings } from '@/lib/enhanced-golf'
 import { useAuth } from '@/context/AuthContext'
 import { CourseCard } from './CourseCard'
 import { AddCourseButton } from './AddCourseButton'
+import { CourseSearch } from './CourseSearch'
 
 export function CourseList() {
   const { user } = useAuth()
@@ -99,6 +100,8 @@ export function CourseList() {
         <h2 className="text-2xl font-bold">My Golf Courses</h2>
         <AddCourseButton onCourseAdded={loadCourses} />
       </div>
+
+      <CourseSearch onCourseAdded={loadCourses} />
 
       {courses.length === 0 ? (
         <div className="text-center py-8">
