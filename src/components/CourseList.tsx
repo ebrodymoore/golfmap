@@ -53,7 +53,7 @@ export function CourseList() {
         <div className="text-center py-8">
           <p className="text-gray-500 mb-4">No golf courses added yet.</p>
           <p className="text-sm text-gray-400">
-            Click "Add Course" to start building your golf course list.
+            Click &quot;Add Course&quot; to start building your golf course list.
           </p>
         </div>
       ) : (
