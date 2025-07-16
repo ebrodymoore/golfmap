@@ -39,10 +39,12 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
         longitude: formData.longitude ? parseFloat(formData.longitude) : undefined
       })
 
-      const existingRankings = await getUserRankings(user.id)
+      // Temporary user ID until auth is implemented
+      const tempUserId = 'temp-user-id'
+      const existingRankings = await getUserRankings(tempUserId)
       const nextRank = existingRankings.length + 1
 
-      await createRanking(user.id, {
+      await createRanking(tempUserId, {
         golf_course_id: course.id,
         rank: nextRank,
         notes: formData.notes || undefined,
