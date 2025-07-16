@@ -2,7 +2,7 @@
 
 export function EnhancedAdminPanel() {
   const hasSupabaseConfig = process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  const hasGoogleMapsConfig = process.env.GOOGLE_MAPS_API_KEY
+  const hasGoogleMapsConfig = process.env.NEXT_PUBLIC_HAS_GOOGLE_MAPS === 'true'
   
   const missingConfigs = []
   if (!hasSupabaseConfig) missingConfigs.push('Add Supabase credentials to .env.local')
