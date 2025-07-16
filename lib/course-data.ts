@@ -1,5 +1,5 @@
 import { Client } from '@googlemaps/google-maps-services-js'
-import { supabase } from './supabase'
+import { supabase } from '../src/lib/supabase'
 import { CreateGolfCourseInput } from '../types/golf'
 
 const googleMapsClient = new Client({})
