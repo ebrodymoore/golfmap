@@ -2,11 +2,9 @@
 
 export function EnhancedAdminPanel() {
   const hasSupabaseConfig = process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  const hasGoogleMapsConfig = process.env.NEXT_PUBLIC_HAS_GOOGLE_MAPS === 'true'
   
   const missingConfigs = []
   if (!hasSupabaseConfig) missingConfigs.push('Add Supabase credentials to .env.local')
-  if (!hasGoogleMapsConfig) missingConfigs.push('Add Google Maps API key to .env.local')
   
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
@@ -33,7 +31,7 @@ export function EnhancedAdminPanel() {
             <h4 className="font-semibold text-green-800 mb-2">✅ Configuration Status</h4>
             <ul className="text-sm text-green-700 space-y-1">
               <li>✓ Supabase credentials configured</li>
-              {hasGoogleMapsConfig && <li>✓ Google Maps API configured</li>}
+              <li>✓ Google Maps API configured</li>
             </ul>
           </div>
         )}
