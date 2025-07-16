@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { createGolfCourse, createRanking, getUserRankings } from '../lib/enhanced-golf'
-import { useAuth } from '../context/AuthContext'
 
 interface AddCourseModalProps {
   isOpen: boolean
@@ -11,7 +10,6 @@ interface AddCourseModalProps {
 }
 
 export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModalProps) {
-  const { user } = useAuth()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState({
@@ -27,7 +25,6 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!user) return
 
     try {
       setLoading(true)

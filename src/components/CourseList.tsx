@@ -3,7 +3,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useState, useEffect } from 'react'
-import { useAuth } from '../context/AuthContext'
 import { AddCourseButton } from '../../components/AddCourseButton'
 
 interface RankedGolfCourse {
@@ -17,7 +16,6 @@ interface RankedGolfCourse {
 }
 
 export function CourseList() {
-  const { user } = useAuth()
   const [courses, setCourses] = useState<RankedGolfCourse[]>([])
   const [loading, setLoading] = useState(false)
 
