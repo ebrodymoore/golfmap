@@ -75,9 +75,9 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg max-w-md w-full max-h-90vh overflow-y-auto">
-        <div className="p-6">
-          <h2 className="text-2xl font-bold mb-4">Add Golf Course</h2>
+      <div className="bg-white rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto">
+        <div className="p-4">
+          <h2 className="text-xl font-bold mb-3">Add Golf Course</h2>
           
           {error && (
             <div className="mb-4 p-3 bg-red-100 border border-red-300 text-red-700 rounded">
@@ -85,7 +85,7 @@ export function AddCourseModal({ isOpen, onClose, onCourseAdded }: AddCourseModa
             </div>
           )}
           
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                 Course Name *
